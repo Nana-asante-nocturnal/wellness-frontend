@@ -147,17 +147,26 @@ export default function WebcamOverlay({ onSignalData }) {
         const faceResult = faceLandmarker.detectForVideo(video, now);
         if (faceResult.faceLandmarks && faceResult.faceLandmarks.length > 0) {
           currentFace = faceResult.faceLandmarks[0];
-          let sum = 0; let count = 0;
           const fx = Math.floor(w * 0.30), fy = Math.floor(h * 0.05);
           const fw = Math.floor(w * 0.40), fh = Math.floor(h * 0.25);
-          for (let i = 10; i <= 110 && i < currentFace.length; i++) {
-            const lm = currentFace[i];
-            const px = lm.x, py = lm.y;
-            if (px >= fx/w && px <= (fx+fw)/w && py >= fy/h && py <= (fy+fh)/h) {
-              sum += 1; count++;
-            }
+          
+          if (!window._roiCanvas) {
+            window._roiCanvas = document.createElement("canvas");
           }
-          roiMean = count > 0 ? sum / count : 0;
+          const canvas = window._roiCanvas;
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext("2d", { willReadFrequently: true });
+          ctx.drawImage(video, 0, 0, w, h);
+          const imgData = ctx.getImageData(fx, fy, fw, fh).data;
+          let rSum = 0, gSum = 0, count = 0;
+          for (let i = 0; i < imgData.length; i += 4) {
+            rSum += imgData[i];
+            gSum += imgData[i+1];
+            count++;
+          }
+          const rMean = count > 0 ? rSum / count : 0;
+          const gMean = count > 0 ? gSum / count : 0;
+          roiMean = (gMean - rMean) / (1e-7 + Math.abs(gMean + rMean));
         }
       }
 
