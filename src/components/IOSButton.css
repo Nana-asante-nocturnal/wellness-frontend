@@ -29,13 +29,13 @@
 }
 
 .ios-btn--filled {
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  background: var(--accent);
   color: #FFFFFF;
   box-shadow: 0 4px 20px var(--accent-glow);
 }
 
 .ios-btn--filled:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--accent-hover), var(--accent-light));
+  background: var(--accent-hover);
   box-shadow: 0 6px 28px var(--accent-glow), 0 0 12px rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
 }
