@@ -84,7 +84,7 @@ export default function Wellness({ calibrated, baselineRmssd, onCalibrate, wsCon
             <IOSCard elevated>
               <div className="ios-card-body" style={{ textAlign: "center", padding: "clamp(32px, 6vw, 64px)" }}>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px", color: "var(--accent)" }}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                 </div>
                 <h2 style={{ fontSize: "clamp(18px, 2.5vw, 24px)", fontWeight: 700, marginBottom: "8px" }}>Session Complete</h2>
                 <p className="text-secondary" style={{ marginBottom: "24px" }}>Your session metrics have been recorded and saved to History.</p>
