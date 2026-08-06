@@ -1,0 +1,53 @@
+.ios-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  transition: transform var(--dur-fast) var(--ease-out),
+              border-color var(--dur-normal) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out);
+  position: relative;
+}
+
+.ios-card:hover {
+  border-color: var(--border-strong);
+}
+
+.ios-card--elevated {
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow-md);
+}
+
+.ios-card--interactive {
+  cursor: pointer;
+}
+
+.ios-card--interactive:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-glow);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+}
+
+.ios-card--interactive:active {
+  transform: translateY(0) scale(0.985);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.ios-card-body {
+  padding: clamp(16px, 2.5vw, 24px);
+}
+
+.ios-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ios-card-footer {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+}
+

@@ -1,0 +1,44 @@
+/* ─── Neuro Motor Exam — Premium Glass Edition ─── */
+.neuro-page { gap: var(--space-md); }
+.neuro-test-list { display: flex; flex-direction: column; gap: var(--space-md); }
+.neuro-test-card { display: flex; align-items: center; gap: clamp(12px, 2vw, 20px); }
+.neuro-test-icon { font-size: clamp(28px, 4vw, 36px); width: clamp(40px, 6vw, 56px); height: clamp(40px, 6vw, 56px); display: flex; align-items: center; justify-content: center; background: rgba(108, 92, 231, 0.12); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); text-align: center; flex-shrink: 0; color: var(--accent-light); }
+.neuro-test-info { flex: 1; min-width: 0; }
+.neuro-chevron { font-size: 22px; color: var(--text-tertiary); flex-shrink: 0; }
+.neuro-back-btn { font-size: clamp(14px, 1.6vw, 16px); font-weight: 600; color: var(--accent-light); padding: var(--space-xs) 0; display: inline-flex; align-items: center; width: fit-content; gap: 4px; margin-bottom: 8px; }
+.neuro-side-indicator { margin-bottom: var(--space-md); }
+.neuro-instruction-list { list-style: disc; padding-left: 20px; display: flex; flex-direction: column; gap: var(--space-sm); font-size: clamp(14px, 1.5vw, 16px); color: var(--text-secondary); line-height: 1.5; }
+.neuro-timer-center { display: flex; justify-content: center; padding: clamp(16px, 3vw, 32px) 0; }
+
+/* ─── Live Screen Grid ─── */
+.neuro-live-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.neuro-live-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: clamp(14px, 2vw, 24px);
+  align-items: stretch;
+}
+
+.neuro-live-camera { width: 100%; }
+.neuro-live-panel { display: flex; flex-direction: column; }
+
+.neuro-results-grid { display: flex; flex-direction: column; gap: var(--space-md); }
+.neuro-metric-mini { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: var(--space-sm); margin-top: var(--space-sm); }
+.neuro-flags { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.neuro-result-actions { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-md); }
+.text-tint { color: var(--accent-light); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .neuro-live-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .neuro-metric-mini { grid-template-columns: 1fr 1fr; }
+  .neuro-instruction-list { font-size: 13px; }
+}
+

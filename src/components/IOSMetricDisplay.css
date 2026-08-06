@@ -1,0 +1,6 @@
+.ios-metric { position: relative; display: flex; flex-direction: column; gap: 2px; padding: clamp(8px, 1.5vw, 16px); background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); }
+.ios-metric-value-row { display: flex; align-items: baseline; gap: var(--space-xs); }
+.ios-metric-number { font-size: clamp(20px, 3vw, 34px); font-weight: 600; color: var(--text-primary); line-height: 1; }
+.ios-metric-unit { font-size: clamp(10px, 1.2vw, 13px); color: var(--text-secondary); }
+.ios-metric-label { font-size: clamp(9px, 1vw, 11px); color: var(--text-secondary); letter-spacing: 0.06em; text-transform: uppercase; }
+.ios-metric-dot { position: absolute; top: var(--space-md); right: var(--space-md); width: 8px; height: 8px; border-radius: 50%; }

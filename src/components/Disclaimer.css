@@ -1,0 +1,26 @@
+.ios-disclaimer {
+  max-width: 900px;
+  width: calc(100% - 32px);
+  margin: 0 auto 90px auto; /* 90px clears the fixed tab bar */
+  padding: 8px 16px;
+  background: rgba(18, 20, 32, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: clamp(10px, 1.1vw, 12px);
+  color: var(--text-tertiary);
+  text-align: center;
+  line-height: 1.4;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .ios-disclaimer {
+    width: calc(100% - 24px);
+    padding: 6px 12px;
+    font-size: 10px;
+    margin-bottom: 76px; /* 76px clears the mobile tab bar */
+  }
+}
+

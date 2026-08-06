@@ -1,0 +1,83 @@
+.ios-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: clamp(10px, 1.5vw, 14px) clamp(20px, 2.5vw, 28px);
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 600;
+  font-family: var(--font-sf);
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+  user-select: none;
+}
+
+.ios-btn:active {
+  transform: scale(0.97);
+}
+
+.ios-btn:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ios-btn--filled {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.ios-btn--filled:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent-hover), var(--accent-light));
+  box-shadow: 0 6px 28px var(--accent-glow), 0 0 12px rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.ios-btn--outline {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-strong);
+  backdrop-filter: blur(12px);
+}
+
+.ios-btn--outline:hover:not(:disabled) {
+  background: var(--bg-elevated);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.ios-btn--destructive {
+  background: rgba(255, 77, 109, 0.08);
+  color: var(--danger);
+  border: 1.5px solid var(--danger);
+}
+
+.ios-btn--destructive:hover:not(:disabled) {
+  background: var(--danger);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px var(--danger-glow);
+}
+
+.ios-btn--ghost {
+  background: transparent;
+  color: var(--accent-light);
+  padding: 8px 16px;
+}
+
+.ios-btn--ghost:hover:not(:disabled) {
+  background: var(--accent-glow);
+  color: #FFFFFF;
+}
+
+.ios-btn--full { width: 100%; }
+.ios-btn--lg { padding: clamp(14px, 2vw, 18px) clamp(24px, 3vw, 32px); font-size: clamp(16px, 1.8vw, 18px); }
+.ios-btn--sm { padding: 6px 14px; font-size: clamp(12px, 1.3vw, 14px); min-height: 36px; }
+

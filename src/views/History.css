@@ -1,0 +1,90 @@
+/* ─── History — Premium Glass Edition ─── */
+.history-page { gap: clamp(12px, 1.8vw, 20px); }
+
+.history-filters {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
+}
+
+.history-filter-chip {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: clamp(12px, 1.3vw, 14px);
+  font-weight: 600;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--dur-fast) var(--ease-out);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.history-filter-chip:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.history-filter-chip--active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.history-list { display: flex; flex-direction: column; gap: var(--space-md); }
+.history-row { display: flex; align-items: center; justify-content: space-between; cursor: pointer; gap: var(--space-sm); }
+.history-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.history-info h3 { font-size: clamp(15px, 1.8vw, 18px); font-weight: 600; }
+.history-info p { font-size: clamp(12px, 1.3vw, 14px); }
+
+.history-detail {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.history-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-sm);
+}
+
+.history-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 14px;
+  background: rgba(10, 12, 20, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.history-delete-btn {
+  align-self: flex-end;
+  font-size: clamp(12px, 1.3vw, 14px);
+  font-weight: 600;
+  color: var(--danger);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--danger-bg);
+  border: 1px solid rgba(255, 77, 109, 0.2);
+  transition: all var(--dur-fast);
+}
+
+.history-delete-btn:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .history-metrics { grid-template-columns: 1fr 1fr; }
+}
+

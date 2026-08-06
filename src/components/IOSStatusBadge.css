@@ -1,0 +1,2 @@
+.ios-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--radius-full); font-size: clamp(9px, 1vw, 11px); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.4; white-space: nowrap; }
+.ios-badge-icon { font-size: 10px; font-weight: 700; }

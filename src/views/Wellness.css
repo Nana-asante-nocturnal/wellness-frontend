@@ -1,0 +1,204 @@
+/* ─── Wellness — Premium Glass Edition ─── */
+
+.wellness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-md);
+  margin-bottom: 4px;
+  padding: 2px 2px 0;
+}
+
+.wellness-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: clamp(14px, 2vw, 24px);
+  align-items: start;
+}
+
+.wellness-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.8vw, 20px);
+}
+
+.wellness-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.8vw, 20px);
+  position: sticky;
+  top: calc(var(--header-height) + 16px);
+}
+
+.wellness-webcam { width: 100%; }
+
+/* ─── BPM Block ─── */
+.wellness-bpm-block {
+  text-align: center;
+  min-width: 120px;
+  position: relative;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.wellness-bpm-value {
+  font-size: clamp(40px, 6vw, 60px);
+  font-weight: 800;
+  font-family: var(--font-rounded);
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #FFFFFF 60%, var(--accent-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wellness-bpm-unit {
+  font-size: clamp(9px, 1.1vw, 11px);
+  color: var(--text-tertiary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+}
+
+.wellness-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  margin: 8px auto 0;
+  animation: pulse-dot 1.2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--success);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.6); }
+}
+
+/* ─── HR Row ─── */
+.wellness-hr-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 24px);
+}
+.wellness-waveform-wrap { flex: 1; min-width: 0; overflow: hidden; }
+
+/* ─── Metrics Grid ─── */
+.wellness-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1.5vw, 16px);
+}
+
+.wellness-metric-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  min-height: 74px;
+}
+
+.wellness-metric-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.wellness-metric-label {
+  font-size: clamp(11px, 1.2vw, 13px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.wellness-metric-sub {
+  font-size: clamp(10px, 1.1vw, 12px);
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  line-height: 1.3;
+}
+
+.wellness-metric-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  max-width: 52%;
+}
+
+.wellness-metric-value {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.wellness-metric-unit {
+  font-size: clamp(10px, 1.1vw, 12px);
+  color: var(--text-tertiary);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+/* ─── Status Pills ─── */
+.wellness-status-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: clamp(10px, 1.1vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wellness-status-pill--success { background: var(--success-bg); color: var(--success); border: 1px solid rgba(0,230,165,0.25); }
+.wellness-status-pill--warning { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(255,176,32,0.25); }
+.wellness-status-pill--danger  { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(255,77,109,0.25); }
+.wellness-status-pill--neutral { background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+.wellness-status-pill--info    { background: var(--info-bg); color: var(--info); border: 1px solid rgba(0,210,255,0.25); }
+
+/* ─── Actions ─── */
+.wellness-actions { display: flex; flex-direction: column; gap: var(--space-sm); }
+.wellness-action-row { display: flex; align-items: center; gap: var(--space-sm); }
+.wellness-action-btn { flex: 1; min-width: 0; }
+.wellness-test-section { margin-top: var(--space-xs); }
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 960px) {
+  .wellness-layout { grid-template-columns: 1fr; }
+  .wellness-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .wellness-sidebar > * { grid-column: span 1; }
+  .wellness-sidebar > .wellness-test-section { grid-column: span 2; }
+}
+
+@media (max-width: 640px) {
+  .wellness-sidebar { grid-template-columns: 1fr; }
+  .wellness-sidebar > * { grid-column: span 1; }
+  .wellness-sidebar > .wellness-test-section { grid-column: span 1; }
+  .wellness-hr-row { flex-direction: column; align-items: center; }
+  .wellness-metrics-grid { grid-template-columns: 1fr; }
+  .wellness-metric-card { min-height: auto; }
+  .wellness-metric-right { max-width: 48%; }
+}
