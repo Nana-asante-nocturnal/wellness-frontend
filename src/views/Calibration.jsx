@@ -144,9 +144,9 @@ export default function Calibration({ onComplete, onCancel }) {
 
             <div style={{ display: "flex", justifyContent: "center", padding: "16px 0" }}>
               <IOSTimerRing
-                seconds={remaining}
-                totalSeconds={CALIB_TOTAL_SEC}
-                label={remaining > 0 ? "SEC REMAINING" : "ANALYZING"}
+                progress={1 - (remaining / CALIB_TOTAL_SEC)}
+                label={remaining > 0 ? remaining : ""}
+                sublabel={remaining > 0 ? "SEC REMAINING" : "ANALYZING"}
               />
             </div>
 

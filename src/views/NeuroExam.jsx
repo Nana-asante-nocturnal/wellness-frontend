@@ -368,9 +368,9 @@ export default function NeuroExam() {
 
                 <div className="neuro-timer-center">
                   <IOSTimerRing
-                    seconds={timeRemaining}
-                    totalSeconds={selectedTestId === "romberg" ? 15 : activeTest.duration}
-                    label={timeRemaining > 0 ? "SEC REMAINING" : "ANALYZING"}
+                    progress={1 - (timeRemaining / (selectedTestId === "romberg" ? 15 : activeTest.duration))}
+                    label={timeRemaining > 0 ? timeRemaining : ""}
+                    sublabel={timeRemaining > 0 ? "SEC REMAINING" : "ANALYZING"}
                   />
                 </div>
               </div>
