@@ -200,7 +200,8 @@ export default function NeuroExam() {
 
     setIsExporting(true);
     try {
-      const res = await fetch("http://localhost:8000/api/report/neuro", {
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const res = await fetch(`${baseUrl}/api/report/neuro`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(summaryData),

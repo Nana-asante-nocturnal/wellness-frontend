@@ -3,7 +3,7 @@ import IOSCard from "../components/IOSCard";
 import IOSStatusBadge from "../components/IOSStatusBadge";
 import "./History.css";
 
-const API = "http://localhost:8000/api/history";
+const API = `${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/history`;
 
 export default function History() {
   const [sessions, setSessions] = useState([]);

@@ -4,7 +4,7 @@
  * Includes heartbeat to prevent browser-side timeout.
  */
 
-const WS_URL = "ws://localhost:8000/ws/session";
+const WS_URL = import.meta.env.VITE_WS_URL || "ws://localhost:8000/ws/session";
 
 let ws = null;
 let listeners = new Map();

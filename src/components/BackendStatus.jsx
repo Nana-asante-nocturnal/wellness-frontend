@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import "./BackendStatus.css";
 
-const STATUS_URL = "http://localhost:8000/api/status";
+const STATUS_URL = `${import.meta.env.VITE_API_URL || "http://localhost:8000"}/api/status`;
 
 export default function BackendStatus({ wsConnected }) {
   const [status, setStatus] = useState({ online: false, loading: true, data: null });

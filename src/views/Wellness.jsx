@@ -44,7 +44,8 @@ export default function Wellness({ calibrated, baselineRmssd, onCalibrate, wsCon
   const handleExportPDF = useCallback(async () => {
     if (!sessionSummary) return;
     try {
-      const res = await fetch("http://localhost:8000/api/report/wellness", {
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const res = await fetch(`${baseUrl}/api/report/wellness`, {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify(sessionSummary),
       });

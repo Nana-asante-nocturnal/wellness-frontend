@@ -10,7 +10,8 @@ export default function TestRunner({ wsConnected }) {
 
   const fetchResults = useCallback(async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/tests/run", {
+      const baseUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const res = await fetch(`${baseUrl}/api/tests/run`, {
         method: "POST",
         signal: AbortSignal.timeout(35000),
       });
