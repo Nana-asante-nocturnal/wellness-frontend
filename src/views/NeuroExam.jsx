@@ -415,25 +415,37 @@ export default function NeuroExam() {
                           </h4>
                           <div className="neuro-metric-mini">
                             <div>
-                              <span className="text-secondary text-xs">Tremor Freq</span>
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Tremor Freq</span>
+                                <InfoTip text="Tremor Frequency: The dominant frequency of involuntary shaking detected during the test. Resting or action tremors often fall between 3 and 12 Hz." />
+                              </div>
                               <div style={{ fontSize: "16px", fontWeight: 700 }}>
                                 {res.tremor_frequency_hz != null ? `${res.tremor_frequency_hz} Hz` : "Normal / Low"}
                               </div>
                             </div>
                             <div>
-                              <span className="text-secondary text-xs">Tremor Amp</span>
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Tremor Amp</span>
+                                <InfoTip text="Tremor Amplitude: The physical size (in pixels) of the shaking movement. Higher values indicate more pronounced tremor severity." />
+                              </div>
                               <div style={{ fontSize: "16px", fontWeight: 700 }}>
                                 {res.tremor_amplitude_px != null ? `${res.tremor_amplitude_px} px` : "--"}
                               </div>
                             </div>
                             <div>
-                              <span className="text-secondary text-xs">Dysmetria</span>
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Dysmetria</span>
+                                <InfoTip text="Dysmetria: The distance by which your finger missed the exact center of your nose (overshoot/undershoot). Evaluates cerebellar coordination." />
+                              </div>
                               <div style={{ fontSize: "16px", fontWeight: 700 }}>
                                 {res.dysmetria_px != null ? `${res.dysmetria_px} px` : "--"}
                               </div>
                             </div>
                             <div>
-                              <span className="text-secondary text-xs">Reach Time</span>
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Reach Time</span>
+                                <InfoTip text="Reach Time: Total seconds taken to complete the movement. Slower times can indicate bradykinesia (slowness of movement)." />
+                              </div>
                               <div style={{ fontSize: "16px", fontWeight: 700 }}>
                                 {res.movement_time_s != null ? `${res.movement_time_s}s` : "--"}
                               </div>
