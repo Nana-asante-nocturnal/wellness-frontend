@@ -419,7 +419,8 @@ export default function NeuroExam() {
                                 <span className="text-secondary text-xs">Tremor Freq</span>
                                 <InfoTip text="Tremor Frequency: The dominant frequency of involuntary shaking detected during the test. Resting or action tremors often fall between 3 and 12 Hz." />
                               </div>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: res.tremor_frequency_hz > 12 ? "var(--error)" : "inherit" }}>
+                                {res.tremor_frequency_hz > 12 && "⚠️ "}
                                 {res.tremor_frequency_hz != null ? `${res.tremor_frequency_hz} Hz` : "Normal / Low"}
                               </div>
                             </div>
@@ -428,7 +429,8 @@ export default function NeuroExam() {
                                 <span className="text-secondary text-xs">Tremor Amp</span>
                                 <InfoTip text="Tremor Amplitude: The physical size (in pixels) of the shaking movement. Higher values indicate more pronounced tremor severity." />
                               </div>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: res.tremor_amplitude_px > 4.0 ? "var(--error)" : "inherit" }}>
+                                {res.tremor_amplitude_px > 4.0 && "⚠️ "}
                                 {res.tremor_amplitude_px != null ? `${res.tremor_amplitude_px} px` : "--"}
                               </div>
                             </div>
@@ -437,7 +439,8 @@ export default function NeuroExam() {
                                 <span className="text-secondary text-xs">Dysmetria</span>
                                 <InfoTip text="Dysmetria: The distance by which your finger missed the exact center of your nose (overshoot/undershoot). Evaluates cerebellar coordination." />
                               </div>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: res.dysmetria_px > 30.0 ? "var(--error)" : "inherit" }}>
+                                {res.dysmetria_px > 30.0 && "⚠️ "}
                                 {res.dysmetria_px != null ? `${res.dysmetria_px} px` : "--"}
                               </div>
                             </div>
@@ -446,7 +449,8 @@ export default function NeuroExam() {
                                 <span className="text-secondary text-xs">Reach Time</span>
                                 <InfoTip text="Reach Time: Total seconds taken to complete the movement. Slower times can indicate bradykinesia (slowness of movement)." />
                               </div>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: res.movement_time_s > 5.0 ? "var(--error)" : "inherit" }}>
+                                {res.movement_time_s > 5.0 && "⚠️ "}
                                 {res.movement_time_s != null ? `${res.movement_time_s}s` : "--"}
                               </div>
                             </div>
@@ -480,21 +484,33 @@ export default function NeuroExam() {
                           </h4>
                           <div className="neuro-metric-mini">
                             <div>
-                              <span className="text-secondary text-xs">Rotation Rate</span>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
-                                {res.movement_rate_hz != null ? `${res.movement_rate_hz} Hz` : "--"}
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Rotation Rate</span>
+                                <InfoTip text="Pronation/Supination Rate: The speed of alternating hand movements. Normal adult rates are typically 2-5 cycles per second (Hz)." />
+                              </div>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: (res.rate_hz != null && res.rate_hz < 0.5) ? "var(--error)" : "inherit" }}>
+                                {(res.rate_hz != null && res.rate_hz < 0.5) && "⚠️ "}
+                                {res.rate_hz != null ? `${res.rate_hz} Hz` : "--"}
                               </div>
                             </div>
                             <div>
-                              <span className="text-secondary text-xs">Rhythm Reg (CV)</span>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
-                                {res.rhythm_regularity_cv != null ? res.rhythm_regularity_cv : "--"}
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Rhythm Reg (CV)</span>
+                                <InfoTip text="Rhythm Regularity (Coefficient of Variation): Measures the consistency of the movement timing. Values > 0.3 indicate irregular rhythm (dysrhythmia)." />
+                              </div>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: (res.rhythm_cv != null && res.rhythm_cv > 0.3) ? "var(--error)" : "inherit" }}>
+                                {(res.rhythm_cv != null && res.rhythm_cv > 0.3) && "⚠️ "}
+                                {res.rhythm_cv != null ? res.rhythm_cv : "--"}
                               </div>
                             </div>
                             <div>
-                              <span className="text-secondary text-xs">Amplitude Decay</span>
-                              <div style={{ fontSize: "16px", fontWeight: 700 }}>
-                                {res.amplitude_decay_pct != null ? `${res.amplitude_decay_pct}%` : "--"}
+                              <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                                <span className="text-secondary text-xs">Amplitude Decay</span>
+                                <InfoTip text="Amplitude Decay: Measures how much the hand rotation shrinks over time. A large decay (>30%) indicates fatigue or pathological slowing." />
+                              </div>
+                              <div style={{ fontSize: "16px", fontWeight: 700, color: (res.amplitude_decay_pct != null && Math.abs(res.amplitude_decay_pct) > 30.0) ? "var(--error)" : "inherit" }}>
+                                {(res.amplitude_decay_pct != null && Math.abs(res.amplitude_decay_pct) > 30.0) && "⚠️ "}
+                                {res.amplitude_decay_pct != null ? `${Math.abs(res.amplitude_decay_pct)}%` : "--"}
                               </div>
                             </div>
                           </div>
@@ -510,20 +526,30 @@ export default function NeuroExam() {
                 <div className="neuro-results-grid">
                   <div className="neuro-metric-mini">
                     <div>
-                      <span className="text-secondary text-xs">Eyes Open Sway Area</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                        <span className="text-secondary text-xs">Eyes Open Sway Area</span>
+                        <InfoTip text="Sway Area (Eyes Open): The total area covered by your center of mass while balancing with eyes open." />
+                      </div>
                       <div style={{ fontSize: "18px", fontWeight: 700 }}>
-                        {activeResult.eyes_open_sway_area != null ? `${activeResult.eyes_open_sway_area} px²` : "--"}
+                        {activeResult.open_ellipse_area != null ? `${activeResult.open_ellipse_area} px²` : "--"}
                       </div>
                     </div>
                     <div>
-                      <span className="text-secondary text-xs">Eyes Closed Sway Area</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                        <span className="text-secondary text-xs">Eyes Closed Sway Area</span>
+                        <InfoTip text="Sway Area (Eyes Closed): The total area covered by your center of mass while balancing with eyes closed." />
+                      </div>
                       <div style={{ fontSize: "18px", fontWeight: 700 }}>
-                        {activeResult.eyes_closed_sway_area != null ? `${activeResult.eyes_closed_sway_area} px²` : "--"}
+                        {activeResult.closed_ellipse_area != null ? `${activeResult.closed_ellipse_area} px²` : "--"}
                       </div>
                     </div>
                     <div>
-                      <span className="text-secondary text-xs">Romberg Quotient (RQ)</span>
-                      <div style={{ fontSize: "18px", fontWeight: 700, color: "var(--accent-light)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "4px", marginBottom: "2px" }}>
+                        <span className="text-secondary text-xs">Romberg Quotient (RQ)</span>
+                        <InfoTip text="Romberg Quotient (RQ): The ratio of closed-eye sway to open-eye sway. Normal is < 2.0. Values > 3.0 indicate significant visual dependence." />
+                      </div>
+                      <div style={{ fontSize: "18px", fontWeight: 700, color: (activeResult.romberg_quotient != null && activeResult.romberg_quotient > 3.0) ? "var(--error)" : (activeResult.romberg_quotient > 2.0 ? "var(--warning)" : "var(--accent-light)") }}>
+                        {(activeResult.romberg_quotient != null && activeResult.romberg_quotient > 2.0) && "⚠️ "}
                         {activeResult.romberg_quotient != null ? activeResult.romberg_quotient : "--"}
                       </div>
                     </div>
